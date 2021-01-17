@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.808.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financial-planner-api", "financial-planner-api\financial-planner-api.csproj", "{3CC94078-23DD-48D4-BB41-37FF6AD28D85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financial-planner-api", "financial-planner-api\financial-planner-api.csproj", "{861089D5-37D8-4AFD-9FC9-A406845BF904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financial-planner-services", "financial-planner-services\financial-planner-services.csproj", "{5001F176-548E-4E03-A85C-8EFB7F552034}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financial-planner-services", "financial-planner-services\financial-planner-services.csproj", "{E977EED3-E7DB-4964-86EF-B214C5BD122E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financial-planner-data", "financial-planner-data\financial-planner-data.csproj", "{C3A21A6A-1ED8-420D-963F-3F44C9DE5F3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financial-planner-dto", "financial-planner-dto\financial-planner-dto.csproj", "{BB465D8A-63A7-4F88-8B66-E8459B392D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financial-planner-data", "financial-planner-data\financial-planner-data.csproj", "{94F0059D-69F7-4706-AC6B-599B101894AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3CC94078-23DD-48D4-BB41-37FF6AD28D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CC94078-23DD-48D4-BB41-37FF6AD28D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CC94078-23DD-48D4-BB41-37FF6AD28D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CC94078-23DD-48D4-BB41-37FF6AD28D85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5001F176-548E-4E03-A85C-8EFB7F552034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5001F176-548E-4E03-A85C-8EFB7F552034}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5001F176-548E-4E03-A85C-8EFB7F552034}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5001F176-548E-4E03-A85C-8EFB7F552034}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3A21A6A-1ED8-420D-963F-3F44C9DE5F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3A21A6A-1ED8-420D-963F-3F44C9DE5F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3A21A6A-1ED8-420D-963F-3F44C9DE5F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3A21A6A-1ED8-420D-963F-3F44C9DE5F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861089D5-37D8-4AFD-9FC9-A406845BF904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861089D5-37D8-4AFD-9FC9-A406845BF904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861089D5-37D8-4AFD-9FC9-A406845BF904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861089D5-37D8-4AFD-9FC9-A406845BF904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E977EED3-E7DB-4964-86EF-B214C5BD122E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E977EED3-E7DB-4964-86EF-B214C5BD122E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E977EED3-E7DB-4964-86EF-B214C5BD122E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E977EED3-E7DB-4964-86EF-B214C5BD122E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB465D8A-63A7-4F88-8B66-E8459B392D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB465D8A-63A7-4F88-8B66-E8459B392D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB465D8A-63A7-4F88-8B66-E8459B392D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB465D8A-63A7-4F88-8B66-E8459B392D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F0059D-69F7-4706-AC6B-599B101894AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F0059D-69F7-4706-AC6B-599B101894AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F0059D-69F7-4706-AC6B-599B101894AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F0059D-69F7-4706-AC6B-599B101894AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

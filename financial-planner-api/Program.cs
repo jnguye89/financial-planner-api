@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using FinancialPlanner.Api;
 
-namespace financial_planner_api
+namespace FinancialPlanner.Api
 {
     public class Program
     {

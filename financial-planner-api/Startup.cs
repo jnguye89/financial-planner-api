@@ -1,17 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//using FinancialPlanner.Data.Data;
+using System.Reflection;
+using AutoMapper;
+using FinancialPlanner.Data.Data;
+using FinancialPlanner.Data.Interfaces;
+using FinancialPlanner.Data.Mappers;
+using FinancialPlanner.Data.Repositories;
+using FinancialPlanner.Services;
+using FinancialPlanner.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
-namespace financial_planner_api
+namespace FinancialPlanner.Api
 {
     public class Startup
     {
@@ -25,7 +28,17 @@ namespace financial_planner_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<FinancialPlannerContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllers();
+            services.AddAutoMapper(new[]
+            {
+                Assembly.GetAssembly(typeof(Startup)),
+                Assembly.GetAssembly(typeof(UserMapper))
+            });
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
