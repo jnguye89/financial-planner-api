@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using FinancialPlanner.Data.Data;
 using FinancialPlanner.Data.Interfaces;
 using FinancialPlanner.Data.Models;
@@ -17,16 +18,16 @@ namespace FinancialPlanner.Data.Repositories
             Mapper = mapper;
         }
 
-        public UserDto GetUserAsync(int UserId)
+        public async Task<UserDto> GetUserAsync(int UserId)
         {
-            //var user = await DbContext.Users.FindAsync(UserId);
+            var user = await DbContext.Users.FindAsync(UserId);
             //return user;
-            var userModel = new User
-            {
-                FirstName = "Jackie",
-                LastName = "Nguyen"
-            };
-            return Mapper.Map<UserDto>(userModel);
+            //var userModel = new User
+            //{
+            //    FirstName = "Jackie",
+            //    LastName = "Nguyen"
+            //};
+            return Mapper.Map<UserDto>(user);
         }
     }
 }

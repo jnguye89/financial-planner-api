@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using FinancialPlanner.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,15 +17,10 @@ namespace FinancialPlanner.Api.Controllers
         }
 
         [HttpGet("{userId}")]
-        public IActionResult GetUser(int userId)
+        public async Task<IActionResult> GetUser(int userId)
         {
-            return Ok(UserService.GetUser(userId));
+            var user = await UserService.GetUser(userId);
+            return Ok(user);
         }
-    }
-
-    public class User
-    {
-        public String FirstName { get; set; }
-        public String LastName { get; set; }
     }
 }

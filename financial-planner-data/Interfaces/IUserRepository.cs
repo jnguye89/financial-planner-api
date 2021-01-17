@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 using FinancialPlanner.Dto;
 
 namespace FinancialPlanner.Data.Interfaces
 {
     public interface IUserRepository
     {
-        UserDto GetUserAsync(int UserId);
+        Task<UserDto> GetUserAsync(int UserId);
     }
 }
