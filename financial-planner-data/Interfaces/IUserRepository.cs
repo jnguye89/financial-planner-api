@@ -7,5 +7,6 @@ namespace FinancialPlanner.Data.Interfaces
     public interface IUserRepository
     {
         Task<UserDto> GetUserAsync(int UserId);
+        Task<UserDto> CreateUserAsync(UserDto userDto);
     }
 }

@@ -19,5 +19,10 @@ namespace FinancialPlanner.Services
         {
             return await UserRepository.GetUserAsync(UserId);
         }
+
+        public async Task<UserDto> CreateUser(UserDto userDto)
+        {
+            return await UserRepository.CreateUserAsync(userDto);
+        }
     }
 }

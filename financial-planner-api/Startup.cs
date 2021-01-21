@@ -1,10 +1,12 @@
 //using FinancialPlanner.Data.Data;
 using System.Reflection;
 using AutoMapper;
+using FinancialPlanner.Api.Middleware;
 using FinancialPlanner.Data.Data;
 using FinancialPlanner.Data.Interfaces;
 using FinancialPlanner.Data.Mappers;
 using FinancialPlanner.Data.Repositories;
+using FinancialPlanner.Dto;
 using FinancialPlanner.Services;
 using FinancialPlanner.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -30,8 +32,10 @@ namespace FinancialPlanner.Api
         {
             services.AddDbContext<FinancialPlannerContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.Configure<JwtSettingsDto>(Configuration.GetSection("JwtSettings"));
 
             services.AddControllers();
+            services.AddTokenAuthentication(Configuration);
             services.AddAutoMapper(new[]
             {
                 Assembly.GetAssembly(typeof(Startup)),
@@ -39,6 +43,7 @@ namespace FinancialPlanner.Api
             });
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IJwtService, JwtService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +57,7 @@ namespace FinancialPlanner.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

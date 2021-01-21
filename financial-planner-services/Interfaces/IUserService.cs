@@ -7,5 +7,6 @@ namespace FinancialPlanner.Services.Interfaces
     public interface IUserService
     {
         Task<UserDto> GetUser(int UserId);
+        Task<UserDto> CreateUser(UserDto userDto);
     }
 }

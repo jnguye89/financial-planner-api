@@ -21,13 +21,15 @@ namespace FinancialPlanner.Data.Repositories
         public async Task<UserDto> GetUserAsync(int UserId)
         {
             var user = await DbContext.Users.FindAsync(UserId);
-            //return user;
-            //var userModel = new User
-            //{
-            //    FirstName = "Jackie",
-            //    LastName = "Nguyen"
-            //};
             return Mapper.Map<UserDto>(user);
+        }
+
+        public async Task<UserDto> CreateUserAsync(UserDto userDto)
+        {
+            var user = Mapper.Map<User>(userDto);
+            DbContext.Add(user);
+            await DbContext.SaveChangesAsync();
+            return Mapper.Map(user, userDto);
         }
     }
 }
