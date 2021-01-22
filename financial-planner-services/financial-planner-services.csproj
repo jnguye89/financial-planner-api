@@ -13,4 +13,7 @@
     <ProjectReference Include="..\financial-planner-dto\financial-planner-dto.csproj" />
     <ProjectReference Include="..\financial-planner-data\financial-planner-data.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="5.0.2" />
+  </ItemGroup>
 </Project>

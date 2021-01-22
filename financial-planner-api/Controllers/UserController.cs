@@ -29,18 +29,11 @@ namespace FinancialPlanner.Api.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateUser(UserDto userDto)
         {
             var user = await UserService.CreateUser(userDto);
             return Ok(user);
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public string GetRandomToken()
-        {
-            var token = JwtService.GenerateSecurityToken("jnguye89@gmail.com");
-            return token;
         }
     }
 }

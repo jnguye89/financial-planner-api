@@ -41,9 +41,10 @@ namespace FinancialPlanner.Api
                 Assembly.GetAssembly(typeof(Startup)),
                 Assembly.GetAssembly(typeof(UserMapper))
             });
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IJwtService, JwtService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
