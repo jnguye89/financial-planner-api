@@ -32,8 +32,12 @@ namespace FinancialPlanner.Api.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> CreateUser(UserDto userDto)
         {
-            var user = await UserService.CreateUser(userDto);
-            return Ok(user);
+            var token = await UserService.CreateUser(userDto);
+            var tokenDto = new TokenDto
+            {
+                Token = token
+            };
+            return Ok(tokenDto);
         }
     }
 }
