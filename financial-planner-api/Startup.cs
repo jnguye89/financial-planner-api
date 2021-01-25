@@ -35,6 +35,7 @@ namespace FinancialPlanner.Api
             services.Configure<JwtSettingsDto>(Configuration.GetSection("JwtSettings"));
 
             services.AddControllers();
+            services.AddCors();
             services.AddTokenAuthentication(Configuration);
             services.AddAutoMapper(new[]
             {
@@ -60,6 +61,7 @@ namespace FinancialPlanner.Api
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {

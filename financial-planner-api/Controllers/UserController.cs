@@ -9,7 +9,7 @@ namespace FinancialPlanner.Api.Controllers
 {
     [ApiController]
     [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserController : Controller
     {
         private IUserService UserService { get; set; }

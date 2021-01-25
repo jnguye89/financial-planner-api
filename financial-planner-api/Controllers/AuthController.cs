@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FinancialPlanner.Api.Controllers
 {
     [ApiController]
-    [Route("[Controller]")]
+    [Route("api/[Controller]")]
     public class AuthController : Controller
     {
         private IAuthService AuthService { get; set; }
