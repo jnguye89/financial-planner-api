@@ -22,7 +22,11 @@ namespace FinancialPlanner.Api.Controllers
         public async Task<IActionResult> GetToken(AuthDto authDto)
         {
             var token = await AuthService.AuthorizeUser(authDto);
-            return Ok(token);
+            var tokenDto = new TokenDto
+            {
+                Token = token
+            };
+            return Ok(tokenDto);
         }
     }
 }
