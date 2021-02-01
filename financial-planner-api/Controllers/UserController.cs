@@ -13,12 +13,10 @@ namespace FinancialPlanner.Api.Controllers
     public class UserController : Controller
     {
         private IUserService UserService { get; set; }
-        private IJwtService JwtService { get; set; }
 
-        public UserController(IUserService userService, IJwtService jwtService)
+        public UserController(IUserService userService)
         {
             UserService = userService;
-            JwtService = jwtService;
         }
 
         [HttpGet("{userId}")]
