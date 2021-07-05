@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using FinancialPlanner.Data.Interfaces;
 using FinancialPlanner.Dto;
@@ -24,6 +25,13 @@ namespace FinancialPlanner.Services
 
         public async Task<UserDto> GetUser(string email)
         {
+            return await UserRepository.GetUserAsync(email);
+        }
+
+        public async Task<UserDto> GetUserByToken(string token)
+        {
+            var deserialized = JwtService.DeserializeToken(token);
+            var email = deserialized.Claims.First(c => c.Type == "email").Value;
             return await UserRepository.GetUserAsync(email);
         }
 

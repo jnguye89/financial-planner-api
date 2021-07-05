@@ -7,10 +7,14 @@ using FinancialPlanner.Data.Interfaces;
 using FinancialPlanner.Data.Mappers;
 using FinancialPlanner.Data.Repositories;
 using FinancialPlanner.Dto;
+using FinancialPlanner.Interfaces;
+using FinancialPlanner.Mappers;
+using FinancialPlanner.Repositories;
 using FinancialPlanner.Services;
 using FinancialPlanner.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,12 +44,17 @@ namespace FinancialPlanner.Api
             services.AddAutoMapper(new[]
             {
                 Assembly.GetAssembly(typeof(Startup)),
-                Assembly.GetAssembly(typeof(UserMapper))
+                Assembly.GetAssembly(typeof(UserMapper)),
+                Assembly.GetAssembly(typeof(BillMapper)),
+                Assembly.GetAssembly(typeof(FrequencyMapper))
             });
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IJwtService, JwtService>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IBillsRepository, BillsRepository>();
+            services.AddTransient<IBillsService, BillsService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -38,5 +38,13 @@ namespace FinancialPlanner.Services
 
             return tokenHandler.WriteToken(token);
         }
+
+        public JwtSecurityToken DeserializeToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var deserialized = handler.ReadJwtToken(token);
+            var claim = deserialized.Claims;
+            return deserialized;
+        }
     }
 }

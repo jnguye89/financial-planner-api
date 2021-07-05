@@ -8,6 +8,7 @@ namespace FinancialPlanner.Services.Interfaces
     {
         Task<UserDto> GetUser(int UserId);
         Task<UserDto> GetUser(string email);
+        Task<UserDto> GetUserByToken(string token);
         Task<string> CreateUser(UserDto userDto);
     }
 }
