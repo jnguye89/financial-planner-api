@@ -54,6 +54,8 @@ namespace FinancialPlanner.Api
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IBillsRepository, BillsRepository>();
             services.AddTransient<IBillsService, BillsService>();
+            services.AddTransient<IFrequencyRepository, FrequencyRepository>();
+            services.AddTransient<IFrequencyService, FrequencyService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 

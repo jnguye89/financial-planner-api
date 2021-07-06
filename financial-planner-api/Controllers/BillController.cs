@@ -13,13 +13,13 @@ namespace FinancialPlanner.Api.Controllers
     [ApiController]
     [Authorize]
     [Route("api/[controller]")]
-    public class BillsController : Controller
+    public class BillController : Controller
     {
         public IBillsService BillsService;
         public IUserService UserService;
         public IJwtService JwtService;
 
-        public BillsController(IBillsService billsService, IUserService userService, IJwtService jwtService)
+        public BillController(IBillsService billsService, IUserService userService, IJwtService jwtService)
         {
             BillsService = billsService;
             UserService = userService;
