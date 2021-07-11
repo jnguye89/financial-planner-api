@@ -38,5 +38,10 @@ namespace FinancialPlanner.Services
             }
             await BillsRepository.CreateBill(bill);
         }
+
+        public async Task DeleteBill(int billId)
+        {
+            await BillsRepository.DeleteBill(billId);
+        }
     }
 }

@@ -15,7 +15,7 @@
 --     Name varchar(100) NOT NULL, 
 --     FrequencyId int NOT NULL,
 --     UserId int NOT NULL,
---     StartDate DATE NULL,
+--     StartDate DATE NOT NULL,
 --     RepetitionDay int NULL,
 --     Amount Decimal(6,2) NOT NULL,
 --     IsIncome bit DEFAULT 0,

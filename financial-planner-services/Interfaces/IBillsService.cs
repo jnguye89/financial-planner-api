@@ -9,5 +9,6 @@ namespace FinancialPlanner.Interfaces
     {
         Task<List<BillDto>> GetBillsByUserId(int userId);
         Task CreateBill(BillDto bill);
+        Task DeleteBill(int billId);
     }
 }

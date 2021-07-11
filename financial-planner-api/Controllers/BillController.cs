@@ -42,5 +42,13 @@ namespace FinancialPlanner.Api.Controllers
             await BillsService.CreateBill(bill);
             return Ok();
         }
+
+        [HttpDelete]
+        [Route("{billId}")]
+        public async Task<IActionResult> DeleteBill(int billId)
+        {
+            await BillsService.DeleteBill(billId);
+            return Ok();
+        }
     }
 }

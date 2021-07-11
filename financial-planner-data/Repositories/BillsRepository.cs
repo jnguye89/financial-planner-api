@@ -33,5 +33,12 @@ namespace FinancialPlanner.Repositories
             var billEntity = DbContext.Bills.Add(entity);
             await DbContext.SaveChangesAsync();
         }
+
+        public async Task DeleteBill(int billId)
+        {
+            var entity = await DbContext.Bills.Where(bill => bill.BillId == billId).FirstOrDefaultAsync();
+            DbContext.Remove(entity);
+            await DbContext.SaveChangesAsync();
+        }
     }
 }
