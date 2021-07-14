@@ -8,6 +8,7 @@ namespace FinancialPlanner.Dto
         public int FrequencyId { get; set; }
         public int UserId { get; set; }
         public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public int? RepetitionDay { get; set; }
         public bool IsIncome { get; set; }
         public decimal Amount { get; set; }

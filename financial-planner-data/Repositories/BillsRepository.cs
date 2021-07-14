@@ -7,6 +7,8 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using FinancialPlanner.Data.Models;
+using System;
+using FinancialPanner.Enums;
 
 namespace FinancialPlanner.Repositories
 {
@@ -23,7 +25,13 @@ namespace FinancialPlanner.Repositories
 
         public async Task<List<BillDto>> GetBillsByUserId(int UserId)
         {
-            var bills = await DbContext.Bills.Include(b => b.Frequency).Where(bill => bill.UserId == UserId).ToListAsync();
+            var bills = await DbContext.Bills.Include(b => b.Frequency)
+                .Where(bill =>
+                    bill.UserId == UserId
+                    && ((bill.FrequencyId == (int)FrequencyEnum.Single && bill.StartDate > DateTime.Now)
+                        || (bill.FrequencyId != (int)FrequencyEnum.Single && bill.EndDate.Value == null)
+                        || (bill.FrequencyId != (int)FrequencyEnum.Single && bill.EndDate.Value > DateTime.Now)))
+                .ToListAsync();
             return Mapper.Map<List<BillDto>>(bills);
         }
 
