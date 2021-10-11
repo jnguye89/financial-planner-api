@@ -23,12 +23,12 @@ namespace FinancialPlanner.Repositories
             Mapper = mapper;
         }
 
-        public async Task<List<BillDto>> GetBillsByUserId(int UserId)
+        public async Task<List<BillDto>> GetBillsByUserId(int UserId, DateTime startDate)
         {
             var bills = await DbContext.Bills.Include(b => b.Frequency)
                 .Where(bill =>
                     bill.UserId == UserId
-                    && ((bill.FrequencyId == (int)FrequencyEnum.Single && bill.StartDate > DateTime.Now)
+                    && ((bill.FrequencyId == (int)FrequencyEnum.Single && bill.StartDate >= startDate)
                         || (bill.FrequencyId != (int)FrequencyEnum.Single && bill.EndDate.Value == null)
                         || (bill.FrequencyId != (int)FrequencyEnum.Single && bill.EndDate.Value > DateTime.Now)))
                 .ToListAsync();

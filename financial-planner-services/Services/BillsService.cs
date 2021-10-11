@@ -4,22 +4,24 @@ using System.Threading.Tasks;
 using FinancialPanner.Enums;
 using FinancialPlanner.Dto;
 using FinancialPlanner.Interfaces;
-using FinancialPlanner.Repositories;
 
 namespace FinancialPlanner.Services
 {
     public class BillsService : IBillsService
     {
-        public IBillsRepository BillsRepository;
+        private IBillsRepository BillsRepository;
+        private IUserBalanceService UserBalanceService;
 
-        public BillsService(IBillsRepository billsRepository)
+        public BillsService(IBillsRepository billsRepository, IUserBalanceService userBalanceService)
         {
             BillsRepository = billsRepository;
+            UserBalanceService = userBalanceService;
         }
 
         public async Task<List<BillDto>> GetBillsByUserId(int userId)
         {
-            return await BillsRepository.GetBillsByUserId(userId);
+            var userBalance = await UserBalanceService.GetUserBalance(userId);
+            return await BillsRepository.GetBillsByUserId(userId, userBalance.Date);
         }
 
         public async Task CreateBill(BillDto bill)

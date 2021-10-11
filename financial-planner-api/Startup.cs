@@ -1,6 +1,8 @@
 //using FinancialPlanner.Data.Data;
 using System.Reflection;
 using AutoMapper;
+using FinancialPanner.Interfaces;
+using FinancialPanner.Repositories;
 using FinancialPlanner.Api.Middleware;
 using FinancialPlanner.Data.Data;
 using FinancialPlanner.Data.Interfaces;
@@ -48,14 +50,19 @@ namespace FinancialPlanner.Api
                 Assembly.GetAssembly(typeof(BillMapper)),
                 Assembly.GetAssembly(typeof(FrequencyMapper))
             });
+            // Services
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IJwtService, JwtService>();
-            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IBillsRepository, BillsRepository>();
             services.AddTransient<IBillsService, BillsService>();
-            services.AddTransient<IFrequencyRepository, FrequencyRepository>();
             services.AddTransient<IFrequencyService, FrequencyService>();
+            services.AddTransient<IUserBalanceService, UserBalanceService>();
+
+            // Repositories
+            services.AddTransient<IFrequencyRepository, FrequencyRepository>();
+            services.AddTransient<IUserBalanceRepository, UserBalanceRepository>();
+            services.AddTransient<IBillsRepository, BillsRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 

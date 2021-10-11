@@ -7,7 +7,7 @@ namespace FinancialPlanner.Interfaces
 {
     public interface IBillsRepository
     {
-        Task<List<BillDto>> GetBillsByUserId(int UserId);
+        Task<List<BillDto>> GetBillsByUserId(int UserId, DateTime startDate);
         Task CreateBill(BillDto bill);
         Task DeleteBill(int billId);
     }
