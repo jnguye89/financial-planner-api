@@ -32,5 +32,11 @@ namespace FinancialPlanner.Api.Controllers
             var userBalance = await UserBalanceService.GetUserBalance(user.UserId);
             return Ok(userBalance);
         }
+
+        //[HttpPut]
+        //public async Task<IActionResult> UpdateUserBalance()
+        //{
+
+        //}
     }
 }

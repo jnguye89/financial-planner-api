@@ -34,6 +34,13 @@ namespace FinancialPlanner.Api.Controllers
             return Ok(bills);
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateBill(BillDto bill)
+        {
+            await BillsService.UpdateBill(bill);
+            return Ok();
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateBill(BillDto bill)
         {

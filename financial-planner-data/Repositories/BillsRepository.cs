@@ -42,6 +42,20 @@ namespace FinancialPlanner.Repositories
             await DbContext.SaveChangesAsync();
         }
 
+        public async Task UpdateBill(BillDto billDto)
+        {
+            var entity = Mapper.Map<Bill>(billDto);
+            var bill = await DbContext.Bills.FindAsync(billDto.BillId);
+            bill.EndDate = entity.EndDate;
+            bill.Amount = entity.Amount;
+            bill.FrequencyId = entity.FrequencyId;
+            bill.IsIncome = entity.IsIncome;
+            bill.Name = entity.Name;
+            bill.RepetitionDay = entity.RepetitionDay;
+            bill.StartDate = entity.StartDate;
+            await DbContext.SaveChangesAsync();
+        }
+
         public async Task DeleteBill(int billId)
         {
             var entity = await DbContext.Bills.Where(bill => bill.BillId == billId).FirstOrDefaultAsync();

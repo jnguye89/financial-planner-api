@@ -10,5 +10,6 @@ namespace FinancialPlanner.Interfaces
         Task<List<BillDto>> GetBillsByUserId(int UserId, DateTime startDate);
         Task CreateBill(BillDto bill);
         Task DeleteBill(int billId);
+        Task UpdateBill(BillDto billDto);
     }
 }
